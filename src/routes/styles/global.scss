@@ -1,0 +1,200 @@
+
+@use "sass:color"; // For color functions like `color.adjust`
+@use "sass:math";  // For any math operations
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono&display=swap');
+
+/* Global CSS Variables (for easy theming) */
+:root , .default {
+
+  --primary-color: #3A86FF;      
+  --secondary-color: #8338EC;    
+  --accent-color: #FFFFFF;      
+  --accent-alt: #FF006E;        
+  --background-dark: #0F0F12;    
+  --background-card: rgba(23, 23, 28, 0.9); 
+  --background-highlight: rgba(40, 40, 50, 0.6); 
+
+  --text-primary: #FFFFFF;       
+  --text-secondary: #CCCCDD;    
+  --text-tertiary: #8A8A9A;  
+
+  --border-light: rgba(255, 255, 255, 0.12); 
+  --border-dashed: rgba(255, 255, 255, 0.2);  
+  --border-accent: rgba(58, 134, 255, 0.5);   
+  
+
+  --status-used: #00AFB9;       
+  --status-unused: #F8B400;     
+  --status-error: #F15BB5;      
+  --status-success: #00F5D4;    
+  --pro-color: #FFC300;         
+}
+/* Theme 2: */
+.theme-aiko {
+  --primary-color: #FF6FAF;
+  --secondary-color: #AABEFF;
+  --accent-color: #FFE3F3;
+  --accent-alt: #B3F4E0;
+
+  --background-dark: #FFF0F5;
+  --background-card: #FFEAF1;
+  --background-highlight: #FFD9EC;
+
+  --text-primary: #3A003A;
+  --text-secondary: #6D326D;
+  --text-tertiary: #A96BA9;
+
+  --border-light: rgba(255, 105, 180, 0.2);
+  --border-dashed: rgba(255, 105, 180, 0.35);
+  --border-accent: rgba(255, 111, 175, 0.55);
+
+  --status-used: #FFB7C5;
+  --status-unused: #FFE066;
+  --status-error: #FF6F91;
+  --status-success: #B0F4CB;
+  --pro-color: #FFD2E1;      
+}
+
+/* Theme 3: */
+.theme-god {
+
+
+  --primary-color: #FF5252;      
+  --secondary-color: #2E86AB;    
+  --accent-color: #FFFFFF;     
+  --accent-alt: #FFD166;       
+
+  --background-dark: #131316;   
+  --background-card: rgba(26, 26, 32, 0.92); 
+  --background-highlight: rgba(45, 45, 55, 0.65); 
+  
+  
+  --text-primary: #FFFFFF;      
+  --text-secondary: #D6D6E0;   
+  --text-tertiary: #9494A6;     
+  
+ 
+  --border-light: rgba(255, 255, 255, 0.15);  
+  --border-dashed: rgba(255, 255, 255, 0.25); 
+  --border-accent: rgba(255, 82, 82, 0.6);    
+
+  --status-used: #06D6A0;       
+  --status-unused: #FFD166;      
+  --status-error: #EF476F;     
+  --status-success: #06D6A0;    
+  --pro-color: #FFD166;          
+}
+
+
+//  card style mixin
+@mixin card-style {
+  background: var(--background-card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    border-color: var(--border-accent);
+  }
+}
+
+// Force styles to apply globally with higher specificity
+html body {
+  font-family: 'Space Mono', monospace;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Apply global styles properly using :global() syntax
+:global(body) {
+  font-family: 'Space Mono', monospace;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+// Main layout styles
+.layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+
+ // Header styles
+ .punvid {
+  &__header {
+    text-align: center;
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  &__title {
+    font-family: 'VT323', monospace;
+    font-size: 4rem;
+    font-weight: normal;
+    letter-spacing: 3px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-shadow: 4px 4px 0px rgba(0, 0, 0, 0.7);
+    color: var(--text-primary);
+    
+    span {
+      color: var(--primary-color);
+    }
+    
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 3px;
+    }
+  }
+  
+}
+
+.punvid {
+  &__footer {
+    text-align: center;
+    margin-top: 1rem;
+    position: relative;
+    padding-top: 1.5rem;
+    border-top: 1px solid  var(--border-light);
+  }
+  
+  &__footer-text {
+    font-size: 0.85rem;
+    color:  var(--text-tertiary);
+    font-style: italic;
+  }
+}
