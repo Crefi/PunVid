@@ -473,49 +473,6 @@
     color: var(--text-primary);
   }
 
-  
-    .storage-breakdown {
-      display: flex;
-      height: 5px;
-      
-      .breakdown-item {
-        height: 100%;
-        
-        .breakdown-color {
-          height: 100%;
-          width: 100%;
-        }
-      }
-    }
-  
-    .storage-legend {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.8rem;
-      font-size: 0.85rem;
-      
-      .legend-item {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      
-      .legend-color {
-        width: 10px;
-        height: 10px;
-        border-radius: 2px;
-      }
-      
-      .legend-label {
-        color: var(--text-secondary);
-      }
-      
-      .legend-value {
-        margin-left: auto;
-        color: var(--text-primary);
-      }
-    }
-  
     // Upload Limits
     .upload-limits {
       display: flex;
